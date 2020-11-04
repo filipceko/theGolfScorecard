@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
+
+    <color name="text_color">#6F1C7E</color>
+    <color name="table_header_bg">#9B4842</color>
+    <color name="table_header_text">#0C1549</color>
+    <color name="table_bg">#E47870</color>
+    <color name="color_bg">#4CAF50</color>
+    <color name="table_value_text">#000000</color>
+    <color name="table_value_bg">#FFFFFF</color>
+
+    <color name="delete_button_color">#BD1F1F</color>
+</resources>

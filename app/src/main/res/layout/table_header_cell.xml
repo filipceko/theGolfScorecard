@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:text="@string/dummy_header_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textSize="@dimen/table_header_size"
+        android:textStyle="bold"
+        android:paddingStart="4sp"
+        android:paddingEnd="4sp"
+        android:paddingLeft="4sp"
+        android:paddingRight="4sp"
+        android:paddingTop="4sp"
+        android:paddingBottom="4sp"
+        android:padding="4sp"
+        android:background="@color/table_header_bg"
+        android:textColor="@color/table_header_text"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="3dp"/>
