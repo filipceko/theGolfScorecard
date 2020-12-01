@@ -44,7 +44,7 @@ public class GolfScorecardApp extends Application {
                 .build();
     }
 
-    private class RealmSchemeMigration implements RealmMigration {
+    private static class RealmSchemeMigration implements RealmMigration {
         /**
          * This method will be called if a migration is needed. The entire method is wrapped in a
          * write transaction so it is possible to create, update or delete any existing objects
@@ -56,9 +56,7 @@ public class GolfScorecardApp extends Application {
          */
         @Override
         public void migrate(DynamicRealm realm, long oldVersion, long newVersion) {
-
             RealmSchema schema = realm.getSchema();
-
             if (oldVersion == 0) {
                 schema.get("Course").renameField("areal", "resort");
             }

@@ -40,20 +40,19 @@ public class Row<T> implements IRow<T> {
     @Override
     public TableRow buildRowView() {
         TableRow row = new TableRow(context);
-        Resources resources = context.getResources();
-        row.setBackgroundColor(resources.getColor(R.color.table_value_bg, null));
         for (ICell cell : cells) {
             cell.buildCellView(row);
         }
         if (onClickListener != null) {
-            row.setOnClickListener((view) -> onClickListener.onClick(view, context, resource));
+            row.setOnClickListener((view) -> onClickListener.onClick(view, resource));
         }
         return row;
     }
 
     @Override
-    public void addCell(ICell cell) {
+    public void addCell(ICell<T> cell) {
         cells.push(cell);
+        cell.setParent(this);
     }
 
     @Override
@@ -62,7 +61,7 @@ public class Row<T> implements IRow<T> {
     }
 
     @Override
-    public int getCellIndex(ICell cell) {
+    public int getCellIndex(ICell<T> cell) {
         return cells.indexOf(cell);
     }
 

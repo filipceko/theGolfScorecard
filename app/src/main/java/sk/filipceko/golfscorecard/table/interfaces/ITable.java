@@ -8,15 +8,15 @@ public interface ITable {
 
     void setHeader(String ... headers);
 
-    void addRow(IRow newRow);
+    void addRow(IRow<?> newRow);
 
     void deleteRow(int index);
 
     int getLastRowIndex();
 
-    int getIndexOf(IRow row);
+    int getIndexOf(IRow<?> row);
 
-    void addRow(int index, IRow newRow);
+    void addRow(int index, IRow<?> newRow);
 
     TableLayout buildTableLayout();
 

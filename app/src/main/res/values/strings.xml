@@ -1,28 +1,36 @@
 <resources>
-    <string name="app_name">TheGolfScorecard</string>
-    <string name="welcome_text">Welcome to the Golf Scorecard app!</string>
-    <string name="logo_desc" translatable="false">Logo</string>
-    <string name="continue_button">Continue</string>
-    <string name="action_settings">Settings</string>
-    <string name="player_name">Name</string>
-    <string name="player_surname">Surname</string>
-    <string name="player_hcp" translatable="false">HCP</string>
-    <string name="new_player_button">Create Player</string>
-    <string name="save_button">Save</string>
-    <string name="delete_button">Delete</string>
-    <string name="player_handicap">35.95</string>
-    <string name="new_course_button">Create Course</string>
+    <string name="app_name">The Golf Scorecard</string>
+    <string name="bottom_navigation_games">Games</string>
+    <string name="bottom_navigation_players">Players</string>
+    <string name="bottom_navigation_courses">Courses</string>
+    <string name="bottom_navigation_new_game">New Game</string>
+
     <string name="course_resort">Resort</string>
     <string name="course_name">Name</string>
     <string name="course_city">City</string>
     <string name="course_country">Country</string>
     <string name="course_holes">Holes</string>
-    <string name="dummy_header_text">Dummy Text</string>
-    <string name="players_text">Players</string>
-    <string name="new_game_button">New Game</string>
-    <string name="courses_text">Courses</string>
-    <string name="date_text">Date</string>
     <string name="course_tees">Tees</string>
-    <string name="edit_button_text">Edit</string>
-    <string name="add_tee_button_text">Add tee</string>
+    <string name="course_tees_size">Tees</string>
+
+    <string name="create_player_button_label">Create Player</string>
+    <string name="create_course_button_label">Create New Course</string>
+    <string name="create_tee_button_label">Add New Tee</string>
+    <string name="save_button_label">Save</string>
+    <string name="cancel_button_label">Cancel</string>
+    <string name="delete_button_label">Delete</string>
+    <string name="edit_button_label">Edit</string>
+    <string name="pick_color_label">Pick a tee color</string>
+
+    <string name="player_name">Name</string>
+    <string name="player_surname">Surname</string>
+    <string name="player_hcp" translatable="false">HCP</string>
+
+    <string name="tee_name">Tee Name</string>
+    <string name="tee_cr">CR</string>
+    <string name="tee_sr">SR</string>
+    <string name="tee_color">Tee Color</string>
+
+    <string name="dummy_text">Dummy Text</string>
+    <string name="game_date">Date</string>
 </resources>

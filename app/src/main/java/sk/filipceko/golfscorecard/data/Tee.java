@@ -4,13 +4,12 @@ import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 import io.realm.annotations.Required;
 import org.bson.types.ObjectId;
-import sk.filipceko.golfscorecard.R;
 
 public class Tee extends RealmObject {
     @PrimaryKey
     private ObjectId teeId = new ObjectId();
     @Required
-    private String teeColor;
+    private String teeColor = null;
     @Required
     private String teeName;
     private float cr;
@@ -24,12 +23,12 @@ public class Tee extends RealmObject {
         this.teeId = teeId;
     }
 
-    public TeeColor getTeeColor() throws ColorNotRecognized {
+    public TeeColor getTeeColor() {
         return TeeColor.parse(teeColor);
     }
 
     public void setTeeColor(TeeColor teeColor) {
-        this.teeColor = teeColor.colorName;
+        this.teeColor = teeColor.getColorName();
     }
 
     public String getTeeName() {
@@ -56,51 +55,19 @@ public class Tee extends RealmObject {
         this.sr = sr;
     }
 
-    public enum TeeColor {
-        Black("Black", R.color.black),
-        Blue("Blue", R.color.blue),
-        White("White", R.color.white),
-        Red("Red", R.color.red),
-        Yellow("Yellow", R.color.yellow),
-        Purple("Purple", R.color.purple),
-        Green("Green", R.color.green),
-        Orange("Orange", R.color.orange);
-
-        String colorName;
-        int colorInt;
-
-        TeeColor(String colorName, int colorInt){
-            this.colorName = colorName;
-            this.colorInt = colorInt;
-        }
-
-        public static TeeColor parse(String name) throws ColorNotRecognized {
-            switch (name) {
-                case "Black":
-                    return Black;
-                case "Blue":
-                    return Blue;
-                case "White":
-                    return White;
-                case "Red":
-                    return Red;
-                case "Yellow":
-                    return Yellow;
-                case "Purple":
-                    return Purple;
-                case "Green":
-                    return Green;
-                case "Orange":
-                    return Orange;
-                default:
-                    throw new ColorNotRecognized(name);
-            }
-        }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Tee)) return false;
+        Tee tee = (Tee) o;
+        //Fields
+        if (teeId.equals(tee.getTeeId())) return true;
+        if (!teeColor.equals(tee.teeColor)) return false;
+        return teeName.equals(tee.teeName);
     }
 
-    public static class ColorNotRecognized extends Exception {
-        public ColorNotRecognized(String message){
-            super(message);
-        }
+    @Override
+    public int hashCode() {
+        return 31 * teeColor.hashCode() + teeName.hashCode();
     }
 }

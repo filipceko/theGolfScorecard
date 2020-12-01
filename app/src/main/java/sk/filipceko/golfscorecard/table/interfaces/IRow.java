@@ -12,11 +12,11 @@ public interface IRow<T> {
 
     TableRow buildRowView();
 
-    void addCell(ICell cell);
+    void addCell(ICell<T> cell);
 
     void removeCell(int index);
 
-    int getCellIndex(ICell cell);
+    int getCellIndex(ICell<T> cell);
 
     T getResource();
 
@@ -24,7 +24,7 @@ public interface IRow<T> {
 
     void setOnClickListener(OnClickListener<T> onClickListener);
 
-    public interface OnClickListener<T> {
-        public void onClick(View view, Context context, T value);
+    interface OnClickListener<T> {
+        void onClick(View view, T value);
     }
 }

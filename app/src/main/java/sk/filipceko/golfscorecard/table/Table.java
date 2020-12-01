@@ -17,18 +17,13 @@ public class Table implements ITable {
     private final Context context;
     private TableLayout rootLayout;
     private final LinkedList<String> headerData = new LinkedList<>();
-    private final LinkedList<IRow> tableRows= new LinkedList<>();
+    private final LinkedList<IRow<?>> tableRows= new LinkedList<>();
 
     private boolean build = false;
 
     public Table(TableLayout rootLayout, Context context) {
-        this(context);
-        this.rootLayout = rootLayout;
-    }
-
-    public Table(Context context){
         this.context = context;
-        //Nothing to do
+        this.rootLayout = rootLayout;
     }
 
     @Override
@@ -43,7 +38,7 @@ public class Table implements ITable {
     }
 
     @Override
-    public void addRow(IRow newRow) {
+    public void addRow(IRow<?> newRow) {
         tableRows.add(newRow);
         newRow.setParent(this);
         if (build){
@@ -52,7 +47,7 @@ public class Table implements ITable {
     }
 
     @Override
-    public void addRow(int index, IRow newRow) {
+    public void addRow(int index, IRow<?> newRow) {
         tableRows.add(index, newRow);
         newRow.setParent(this);
         if (build){
@@ -71,7 +66,7 @@ public class Table implements ITable {
     }
 
     @Override
-    public int getIndexOf(IRow row) {
+    public int getIndexOf(IRow<?> row) {
         return tableRows.indexOf(row);
     }
 

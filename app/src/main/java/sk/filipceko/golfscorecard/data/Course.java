@@ -15,12 +15,29 @@ public class Course extends RealmObject {
     private String courseName;
     private String City;
     private String Country;
-    private RealmList<Tee> tees;
-    private RealmList<Hole> holes;
+    private RealmList<Tee> tees = new RealmList<>();
+    private RealmList<Hole> holes = new RealmList<>();
 
 
     public RealmList<Tee> getTees() {
         return tees;
+    }
+
+    public void addTee(Tee newTee){
+        for (Tee oldTee : tees) {
+            if (oldTee.equals(newTee)) {
+                oldTee.setTeeName(newTee.getTeeName());
+                oldTee.setTeeColor(newTee.getTeeColor());
+                oldTee.setCr(newTee.getCr());
+                oldTee.setSr(newTee.getSr());
+                return;
+            }
+        }
+        tees.add(newTee);
+    }
+
+    public void removeTee(Tee tee) {
+        tees.remove(tee);
     }
 
     public void setTees(RealmList<Tee> tees) {
@@ -36,7 +53,30 @@ public class Course extends RealmObject {
     }
 
     public Hole getHole(int holeNumber){
-        return holes.get(holeNumber);
+        for (Hole hole : holes) {
+            if (hole.getNumber() == holeNumber){
+                return hole;
+            }
+        }
+        return null;
+    }
+
+    public void addHole(Hole hole) {
+        Hole oldHole = getHole(hole.getNumber());
+        if (oldHole ==null) {
+            holes.add(hole);
+            return;
+        }
+        oldHole.setPar(hole.getPar());
+        oldHole.setHcp(hole.getHcp());
+    }
+
+    public void removeHole(int holeNumber) {
+        Hole hole = getHole(holeNumber);
+        if (hole != null) {
+            holes.remove(hole);
+            hole.deleteFromRealm();
+        }
     }
 
     public int getNumberOfHoles(){

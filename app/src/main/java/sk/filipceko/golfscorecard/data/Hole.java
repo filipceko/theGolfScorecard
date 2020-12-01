@@ -42,4 +42,22 @@ public class Hole extends RealmObject {
     public void setHcp(int hcp) {
         this.hcp = hcp;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Hole)) return false;
+        Hole hole = (Hole) o;
+        if (holeId != null && hole.holeId != null && holeId.equals(hole.holeId)) return true;
+        return number == hole.number;
+    }
+
+    @Override
+    public int hashCode() {
+        if (holeId != null) {
+            return holeId.hashCode();
+        } else {
+              return 31 + number;
+        }
+    }
 }
