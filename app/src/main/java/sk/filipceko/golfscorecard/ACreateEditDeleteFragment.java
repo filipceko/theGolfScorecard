@@ -71,7 +71,9 @@ public abstract class ACreateEditDeleteFragment<T extends RealmObject> extends F
         if (itemToEdit.isManaged()) {
             Realm realm = Realm.getDefaultInstance();
             realm.beginTransaction();
-            itemToEdit.deleteFromRealm();
+            T item = itemToEdit;
+            itemToEdit = realm.copyFromRealm(item);
+            item.deleteFromRealm();
             realm.commitTransaction();
         }
         fireDeleteEvent(itemToEdit);
