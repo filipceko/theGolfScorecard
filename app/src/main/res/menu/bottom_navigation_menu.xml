@@ -3,17 +3,21 @@
     <item
         android:id="@+id/games_page"
         android:enabled="true"
-        android:title="@string/bottom_navigation_games" />
+        android:title="@string/bottom_navigation_games"
+        android:icon="@drawable/ic_games_bottom_bar"/>
     <item
         android:id="@+id/players_page"
         android:enabled="true"
-        android:title="@string/bottom_navigation_players" />
+        android:title="@string/bottom_navigation_players"
+        android:icon="@drawable/ic_players_bottom_bar"/>
     <item
         android:id="@+id/courses_page"
         android:enabled="true"
-        android:title="@string/bottom_navigation_courses" />
+        android:title="@string/bottom_navigation_courses"
+        android:icon="@drawable/ic_courses_bottom_bar"/>
     <item
         android:id="@+id/new_game_page"
         android:enabled="true"
-        android:title="@string/bottom_navigation_new_game" />
+        android:title="@string/bottom_navigation_new_game"
+        android:icon="@drawable/ic_new_game_bottom_bar"/>
 </menu>
