@@ -94,4 +94,9 @@ public class CoursesFragment extends Fragment implements ICreateEditDeleteView.O
     public void onDelete(Course item) {
         refreshTable();
     }
+
+    @Override
+    public void onClose() {
+        //Nothing to do
+    }
 }

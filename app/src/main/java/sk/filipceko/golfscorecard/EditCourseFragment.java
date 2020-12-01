@@ -1,7 +1,9 @@
 package sk.filipceko.golfscorecard;
 
+import android.app.Activity;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.view.View;
@@ -130,7 +132,7 @@ public class EditCourseFragment extends ACreateEditDeleteFragment<Course>
         if (tees.isEmpty()) {
             return;
         }
-        for (Tee tee : itemToEdit.getTees()){
+        for (Tee tee : tees){
             IRow<Tee> row = new Row<>(getContext(), tee);
             ButtonCell<Tee> editButtonCell = new ButtonCell<>(getContext());
             editButtonCell.setButtonText(resources.getString(R.string.edit_button_label));
@@ -191,5 +193,15 @@ public class EditCourseFragment extends ACreateEditDeleteFragment<Course>
             itemToEdit.removeTee(item);
         }
         loadTeesTable(itemToEdit.getTees());
+    }
+
+    @Override
+    public void onClose() {
+        InputMethodManager imm = (InputMethodManager) getActivity()
+                .getSystemService(Activity.INPUT_METHOD_SERVICE);
+        View view = getActivity().getCurrentFocus();
+        if (view != null) {
+            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
     }
 }

@@ -7,5 +7,6 @@ public interface ICreateEditDeleteView<T> {
     interface OnResultListener<T> {
         void onSave(T item);
         void onDelete(T item);
+        void onClose();
     }
 }

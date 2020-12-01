@@ -85,4 +85,9 @@ public class PlayersFragment extends Fragment implements ICreateEditDeleteView.O
     public void onDelete(Player item) {
         refreshPlayersTable();
     }
+
+    @Override
+    public void onClose() {
+        //Nothing to do
+    }
 }

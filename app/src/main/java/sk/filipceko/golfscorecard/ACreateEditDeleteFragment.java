@@ -108,6 +108,12 @@ public abstract class ACreateEditDeleteFragment<T extends RealmObject> extends F
         }
     }
 
+    protected void fireCloseEvent() {
+        for (OnResultListener<T> listener : listeners) {
+            listener.onClose();
+        }
+    }
+
     protected void close(boolean popStack) {
         if (popStack) {
             getParentFragmentManager().popBackStack();
@@ -115,5 +121,6 @@ public abstract class ACreateEditDeleteFragment<T extends RealmObject> extends F
         getParentFragmentManager().beginTransaction()
                 .remove(this)
                 .commit();
+        fireCloseEvent();
     }
 }
