@@ -140,8 +140,8 @@ public class EditCourseFragment extends ACreateEditDeleteFragment<Course>
             row.addCell(srCell);
             ICell<Tee> crCell = new TextCell<>(getContext(), String.valueOf(tee.getCr()));
             row.addCell(crCell);
-            ICell<Tee> colorCell = new TextCell<>(getContext(), tee.getTeeColor().name());
-            colorCell.setBgColor(tee.getTeeColor().getColor(getResources()));
+            ICell<Tee> colorCell = new TextCell<>(getContext(), tee.getTeeColor().getUiColorName(resources));
+            colorCell.setBgColor(tee.getTeeColor().getColor(resources));
             colorCell.setTextColor(resources.getColor(
                     (tee.getTeeColor().secondaryTextColor())? R.color.secondaryTextColor : R.color.primaryTextColor,
                     null));

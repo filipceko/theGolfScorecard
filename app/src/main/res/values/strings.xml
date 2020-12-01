@@ -1,4 +1,12 @@
 <resources>
+    <string name="tee_yellow_name">Yellow</string>
+    <string name="tee_black_name">Black</string>
+    <string name="tee_blue_name">Blue</string>
+    <string name="tee_white_name">White</string>
+    <string name="tee_red_name">Red</string>
+    <string name="tee_purple_name">Purple</string>
+    <string name="tee_green_name">Green</string>
+    <string name="tee_orange_name">Orange</string>
     <string name="app_name">The Golf Scorecard</string>
     <string name="bottom_navigation_games">Games</string>
     <string name="bottom_navigation_players">Players</string>

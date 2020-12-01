@@ -4,19 +4,21 @@ import android.content.res.Resources;
 import sk.filipceko.golfscorecard.R;
 
 public enum TeeColor {
-    Black("Black", R.color.black),
-    Blue("Blue", R.color.blue),
-    White("White", R.color.white),
-    Red("Red", R.color.red),
-    Yellow("Yellow", R.color.yellow),
-    Purple("Purple", R.color.purple),
-    Green("Green", R.color.green),
-    Orange("Orange", R.color.orange);
+    Black("Black",R.string.tee_black_name, R.color.black),
+    Blue("Blue", R.string.tee_blue_name, R.color.blue),
+    White("White", R.string.tee_white_name, R.color.white),
+    Red("Red", R.string.tee_red_name, R.color.red),
+    Yellow("Yellow", R.string.tee_yellow_name, R.color.yellow),
+    Purple("Purple", R.string.tee_purple_name, R.color.purple),
+    Green("Green", R.string.tee_green_name, R.color.green),
+    Orange("Orange", R.string.tee_orange_name, R.color.orange);
 
     private final String colorName;
+    private final int uiColorNameCode;
     private final int colorResourceCode;
 
-    TeeColor(String colorName, int colorResource){
+    TeeColor(String colorName,int uiColorNameCode, int colorResource){
+        this.uiColorNameCode = uiColorNameCode;
         this.colorName = colorName;
         this.colorResourceCode = colorResource;
     }
@@ -45,6 +47,10 @@ public enum TeeColor {
 
     public String getColorName(){
         return colorName;
+    }
+
+    public String getUiColorName(Resources resources) {
+        return resources.getString(uiColorNameCode);
     }
 
     public int getColor(Resources resources) {
