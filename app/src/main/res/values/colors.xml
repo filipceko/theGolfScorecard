@@ -6,7 +6,11 @@
     <color name="secondaryColor">#616161</color>
     <color name="secondaryLightColor">#8e8e8e</color>
     <color name="secondaryDarkColor">#373737</color>
-    <color name="primaryTextColor">#000000</color>
-    <color name="secondaryTextColor">#ffffff</color>
+
+    <color name="primaryTextColor">#E6000000</color>
+    <color name="secondaryTextColor">#E6ffffff</color>
+
     <color name="transparentBG">#B3616161</color>
+
+    <color name="textInputOutlineColor">@color/secondaryLightColor</color>
 </resources>

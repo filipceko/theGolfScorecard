@@ -3,6 +3,7 @@ package sk.filipceko.golfscorecard;
 import android.app.Activity;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -27,6 +28,8 @@ public class EditCourseFragment extends ACreateEditDeleteFragment<Course>
         implements ICreateEditDeleteView.OnResultListener<Tee> {
 
     ITable teesTable;
+    TableLayout parTable;
+    TableLayout hcpTable;
 
     public static EditCourseFragment newInstance(Course courseToEdit){
         EditCourseFragment editCourseFragment = new EditCourseFragment();
@@ -54,6 +57,8 @@ public class EditCourseFragment extends ACreateEditDeleteFragment<Course>
         if (itemToEdit == null) {
             itemToEdit = new Course();
         }
+        hcpTable = mainView.findViewById(R.id.course_hcp_table);
+        parTable = mainView.findViewById(R.id.course_par_table);
         //Prepare tee section
         teesTable = new Table(mainView.findViewById(R.id.course_tee_table), getContext());
         Resources resources = getResources();
@@ -74,13 +79,12 @@ public class EditCourseFragment extends ACreateEditDeleteFragment<Course>
         cityEditText.setText(itemToEdit.getCity());
         TextInputEditText countryEditText = mainView.findViewById(R.id.course_country_edit_text);
         countryEditText.setText(itemToEdit.getCountry());
-        TableLayout holeHcp = mainView.findViewById(R.id.course_hcp_table);
-        TableLayout holePar = mainView.findViewById(R.id.course_par_table);
         for (Hole hole : itemToEdit.getHoles()){
-            getHoleEdit(hole.getNumber(), holePar).setText(String.valueOf(hole.getPar()));
-            getHoleEdit(hole.getNumber(), holeHcp).setText(String.valueOf(hole.getHcp()));
+            getHoleEdit(hole.getNumber(), parTable).setText(String.valueOf(hole.getPar()));
+            getHoleEdit(hole.getNumber(), hcpTable).setText(String.valueOf(hole.getHcp()));
         }
         loadTeesTable(itemToEdit.getTees());
+        setOnEditListenersToHoleTables();
     }
 
     @Override
@@ -96,11 +100,9 @@ public class EditCourseFragment extends ACreateEditDeleteFragment<Course>
         itemToEdit.setCity(cityEditText.getText().toString());
         TextInputEditText countryEditText = mainView.findViewById(R.id.course_country_edit_text);
         itemToEdit.setCountry(countryEditText.getText().toString());
-        TableLayout holeHcp = mainView.findViewById(R.id.course_hcp_table);
-        TableLayout holePar = mainView.findViewById(R.id.course_par_table);
         for (int i = 1; i < 19; ++i) {
-            String hcpString = getHoleEdit(i, holeHcp).getText().toString();
-            String parString = getHoleEdit(i, holePar).getText().toString();
+            String hcpString = getHoleEdit(i, hcpTable).getText().toString();
+            String parString = getHoleEdit(i, parTable).getText().toString();
             if (hcpString.isEmpty() || parString.isEmpty()) {
                 itemToEdit.removeHole(i);
             } else {
@@ -203,5 +205,37 @@ public class EditCourseFragment extends ACreateEditDeleteFragment<Course>
         if (view != null) {
             imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
         }
+    }
+
+    private void setOnEditListenersToHoleTables(){
+        for (int i = 1; i < 18; ++i) {
+            TextInputEditText editText = getHoleEdit(i, parTable);
+            int finalI = i;
+            editText.setOnEditorActionListener((v, actionId, event) -> {
+                if (actionId == EditorInfo.IME_ACTION_NEXT) {
+                    getHoleEdit(finalI + 1, parTable).requestFocus();
+                    return true;
+                }
+                return false;
+            });
+            editText = getHoleEdit(i, hcpTable);
+            editText.setOnEditorActionListener((v, actionId, event) -> {
+                if (actionId == EditorInfo.IME_ACTION_NEXT) {
+                    getHoleEdit(finalI + 1, hcpTable).requestFocus();
+                    return true;
+                }
+                return false;
+            });
+        }
+        TextInputEditText editText = getHoleEdit(18, parTable);
+        editText.setOnEditorActionListener((v, actionId, event) -> {
+            if (actionId == EditorInfo.IME_ACTION_NEXT) {
+                getHoleEdit(1, hcpTable).requestFocus();
+                return true;
+            }
+            return false;
+        });
+        editText = getHoleEdit(18, hcpTable);
+        editText.setImeOptions(EditorInfo.IME_ACTION_DONE);
     }
 }

@@ -32,7 +32,7 @@ public class PlayersFragment extends Fragment implements ICreateEditDeleteView.O
         table.setHeader(
                 resources.getString(R.string.player_name),
                 resources.getString(R.string.player_surname),
-                resources.getString(R.string.player_hcp)
+                resources.getString(R.string.hcp)
         );
         refreshPlayersTable();
         MaterialButton createPlayerButton = view.findViewById(R.id.create_player_button);

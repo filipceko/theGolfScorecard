@@ -35,7 +35,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="6dp"
-            android:hint="@string/player_hcp">
+            android:hint="@string/hcp">
         <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/hcp_edit_text"
                 android:layout_width="match_parent"

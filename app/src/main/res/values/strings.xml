@@ -32,7 +32,9 @@
 
     <string name="player_name">Name</string>
     <string name="player_surname">Surname</string>
-    <string name="player_hcp" translatable="false">HCP</string>
+
+    <string name="hcp" translatable="false">HCP</string>
+    <string name="par" translatable="false">PAR</string>
 
     <string name="tee_name">Tee Name</string>
     <string name="tee_cr">CR</string>

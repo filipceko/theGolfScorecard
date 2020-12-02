@@ -1,11 +1,65 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
     <!-- Base application theme. -->
-    <style name="Theme.App" parent="Theme.MaterialComponents">
-        <!-- Customize your theme here. -->
+    <style name="Theme.ScoreCard" parent="Theme.MaterialComponents">
         <item name="colorPrimary">@color/primaryColor</item>
         <item name="colorPrimaryDark">@color/primaryDarkColor</item>
         <item name="colorAccent">@color/secondaryColor</item>
-        <item name="bottomNavigationStyle">@style/Widget.MaterialComponents.BottomNavigationView.Colored</item>
+        <item name="android:textColorPrimary">@color/primaryTextColor</item>
+        <item name="android:textColorSecondary">@color/secondaryTextColor</item>
+        <item name="android:textSize">@dimen/standard_text_size</item>
+        <item name="textInputStyle">@style/Scorecard.TextInputLayout</item>
     </style>
 
+    <style name="Scorecard.BottomNavigationView"
+           parent="@style/Widget.MaterialComponents.BottomNavigationView.Colored">
+    </style>
+
+    <style name="Scorecard.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.Scorecard.TextInputLayout</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.MaterialComponents.SmallComponent</item>
+        <item name="hintTextColor">@color/textInputOutlineColor</item>
+    </style>
+
+    <style name="ThemeOverlay.Scorecard.TextInputLayout"
+           parent="@style/ThemeOverlay.MaterialComponents.TextInputEditText.FilledBox">
+        <item name="editTextStyle">@style/Scorecard.TextInput.EditText</item>
+    </style>
+
+    <style name="Scorecard.TextInput.EditText" parent="Widget.MaterialComponents.TextInputEditText.FilledBox">
+        <item name="android:textColor">@color/secondaryTextColor</item>
+    </style>
+
+    <style name="Scorecard.Button" parent="Widget.MaterialComponents.Button">
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <item name="backgroundTint">?attr/colorPrimaryDark</item>
+    </style>
+
+    <style name="Scorecard.Tables.Holes.TextView" parent="Widget.MaterialComponents.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/standard_text_size</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
+    <style name="Scorecard.Tables.Holes.EditText" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textColor">@color/secondaryTextColor</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/standard_text_size</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:inputType">number</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:maxLength">2</item>
+        <item name="android:imeOptions">actionNext</item>
+    </style>
+
+    <style name="Scorecard.Tables.Holes.EditText.First" parent="Scorecard.Tables.Holes.EditText">
+        <item name="android:background">?attr/colorAccent</item>
+    </style>
+
+    <style name="Scorecard.Tables.Holes.EditText.Second" parent="Scorecard.Tables.Holes.EditText">
+        <item name="android:background">?attr/colorPrimaryDark</item>
+    </style>
 </resources>

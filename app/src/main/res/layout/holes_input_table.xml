@@ -9,284 +9,124 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
         <TextView
+                style="@style/Scorecard.Tables.Holes.TextView"
                 android:text="1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:ignore="HardcodedText"
-                android:textAlignment="center"
-                android:layout_weight="1"/>
-
+                tools:ignore="HardcodedText"/>
         <TextView
+                style="@style/Scorecard.Tables.Holes.TextView"
                 android:text="2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:ignore="HardcodedText"
-                android:textAlignment="center"
-                android:layout_weight="1"/>
-
+                tools:ignore="HardcodedText"/>
         <TextView
+                style="@style/Scorecard.Tables.Holes.TextView"
                 android:text="3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:ignore="HardcodedText"
-                android:textAlignment="center"
-                android:layout_weight="1"/>
-
+                tools:ignore="HardcodedText"/>
         <TextView
+                style="@style/Scorecard.Tables.Holes.TextView"
                 android:text="4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:ignore="HardcodedText"
-                android:textAlignment="center"
-                android:layout_weight="1"/>
-
+                tools:ignore="HardcodedText"/>
         <TextView
+                style="@style/Scorecard.Tables.Holes.TextView"
                 android:text="5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:ignore="HardcodedText"
-                android:textAlignment="center"
-                android:layout_weight="1"/>
-
+                tools:ignore="HardcodedText"/>
         <TextView
+                style="@style/Scorecard.Tables.Holes.TextView"
                 android:text="6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:ignore="HardcodedText"
-                android:textAlignment="center"
-                android:layout_weight="1"/>
-
+                tools:ignore="HardcodedText"/>
         <TextView
+                style="@style/Scorecard.Tables.Holes.TextView"
                 android:text="7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:ignore="HardcodedText"
-                android:textAlignment="center"
-                android:layout_weight="1"/>
-
+                tools:ignore="HardcodedText"/>
         <TextView
+                style="@style/Scorecard.Tables.Holes.TextView"
                 android:text="8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:ignore="HardcodedText"
-                android:textAlignment="center"
-                android:layout_weight="1"/>
-
+                tools:ignore="HardcodedText"/>
         <TextView
+                style="@style/Scorecard.Tables.Holes.TextView"
                 android:text="9"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:ignore="HardcodedText"
-                android:textAlignment="center"
-                android:layout_weight="1"/>
+                tools:ignore="HardcodedText"/>
     </TableRow>
     <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
         <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:inputType="number"
-                android:layout_weight="1"
-                android:maxLength="2"/>
-
+                style="@style/Scorecard.Tables.Holes.EditText.First"/>
         <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:inputType="number"
-                android:layout_weight="1"
-                android:maxLength="2"/>
-
+                style="@style/Scorecard.Tables.Holes.EditText.Second"/>
         <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:inputType="number"
-                android:layout_weight="1"
-                android:maxLength="2"/>
-
+                style="@style/Scorecard.Tables.Holes.EditText.First"/>
         <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:inputType="number"
-                android:layout_weight="1"
-                android:maxLength="2"/>
-
+                style="@style/Scorecard.Tables.Holes.EditText.Second"/>
         <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:inputType="number"
-                android:layout_weight="1"
-                android:maxLength="2"/>
-
+                style="@style/Scorecard.Tables.Holes.EditText.First"/>
         <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:inputType="number"
-                android:layout_weight="1"
-                android:maxLength="2"/>
-
+                style="@style/Scorecard.Tables.Holes.EditText.Second"/>
         <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:inputType="number"
-                android:layout_weight="1"
-                android:maxLength="2"/>
-
+                style="@style/Scorecard.Tables.Holes.EditText.First"/>
         <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:inputType="number"
-                android:layout_weight="1"
-                android:maxLength="2"/>
-
+                style="@style/Scorecard.Tables.Holes.EditText.Second"/>
         <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:inputType="number"
-                android:layout_weight="1"
-                android:maxLength="2"/>
+                style="@style/Scorecard.Tables.Holes.EditText.First"/>
     </TableRow>
     <TableRow
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
         <TextView
+                style="@style/Scorecard.Tables.Holes.TextView"
                 android:text="10"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:ignore="HardcodedText"
-                android:textAlignment="center"
-                android:layout_weight="1"/>
-
+                tools:ignore="HardcodedText"/>
         <TextView
+                style="@style/Scorecard.Tables.Holes.TextView"
                 android:text="11"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:ignore="HardcodedText"
-                android:textAlignment="center"
-                android:layout_weight="1"/>
-
+                tools:ignore="HardcodedText"/>
         <TextView
+                style="@style/Scorecard.Tables.Holes.TextView"
                 android:text="12"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:ignore="HardcodedText"
-                android:textAlignment="center"
-                android:layout_weight="1"/>
-
+                tools:ignore="HardcodedText"/>
         <TextView
+                style="@style/Scorecard.Tables.Holes.TextView"
                 android:text="13"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:ignore="HardcodedText"
-                android:textAlignment="center"
-                android:layout_weight="1"/>
-
+                tools:ignore="HardcodedText"/>
         <TextView
+                style="@style/Scorecard.Tables.Holes.TextView"
                 android:text="14"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:ignore="HardcodedText"
-                android:textAlignment="center"
-                android:layout_weight="1"/>
-
+                tools:ignore="HardcodedText"/>
         <TextView
+                style="@style/Scorecard.Tables.Holes.TextView"
                 android:text="15"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:ignore="HardcodedText"
-                android:textAlignment="center"
-                android:layout_weight="1"/>
-
+                tools:ignore="HardcodedText"/>
         <TextView
+                style="@style/Scorecard.Tables.Holes.TextView"
                 android:text="16"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:ignore="HardcodedText"
-                android:textAlignment="center"
-                android:layout_weight="1"/>
-
+                tools:ignore="HardcodedText"/>
         <TextView
+                style="@style/Scorecard.Tables.Holes.TextView"
                 android:text="17"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:ignore="HardcodedText"
-                android:textAlignment="center"
-                android:layout_weight="1"/>
-
+                tools:ignore="HardcodedText"/>
         <TextView
+                style="@style/Scorecard.Tables.Holes.TextView"
                 android:text="18"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:ignore="HardcodedText"
-                android:textAlignment="center"
-                android:layout_weight="1"/>
+                tools:ignore="HardcodedText"/>
     </TableRow>
     <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
         <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:inputType="number"
-                android:layout_weight="1"
-                android:maxLength="2"/>
-
+                style="@style/Scorecard.Tables.Holes.EditText.Second"/>
         <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:inputType="number"
-                android:layout_weight="1"
-                android:maxLength="2"/>
-
+                style="@style/Scorecard.Tables.Holes.EditText.First"/>
         <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:inputType="number"
-                android:layout_weight="1"
-                android:maxLength="2"/>
-
+                style="@style/Scorecard.Tables.Holes.EditText.Second"/>
         <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:inputType="number"
-                android:layout_weight="1"
-                android:maxLength="2"/>
-
+                style="@style/Scorecard.Tables.Holes.EditText.First"/>
         <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:inputType="number"
-                android:layout_weight="1"
-                android:maxLength="2"/>
-
+                style="@style/Scorecard.Tables.Holes.EditText.Second"/>
         <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:inputType="number"
-                android:layout_weight="1"
-                android:maxLength="2"/>
-
+                style="@style/Scorecard.Tables.Holes.EditText.First"/>
         <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:inputType="number"
-                android:layout_weight="1"
-                android:maxLength="2"/>
-
+                style="@style/Scorecard.Tables.Holes.EditText.Second"/>
         <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:inputType="number"
-                android:layout_weight="1"
-                android:maxLength="2"/>
-
+                style="@style/Scorecard.Tables.Holes.EditText.First"/>
         <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:inputType="number"
-                android:layout_weight="1"
-                android:maxLength="2"/>
+                style="@style/Scorecard.Tables.Holes.EditText.Second"/>
     </TableRow>
 </TableLayout>
