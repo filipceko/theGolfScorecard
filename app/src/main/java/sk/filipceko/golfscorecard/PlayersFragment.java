@@ -21,6 +21,10 @@ public class PlayersFragment extends Fragment implements ICreateEditDeleteView.O
 
     ITable table;
 
+    public static PlayersFragment newInstance(){
+        return new PlayersFragment();
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,

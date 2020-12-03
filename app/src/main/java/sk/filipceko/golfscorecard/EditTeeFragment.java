@@ -47,8 +47,10 @@ public class EditTeeFragment extends ACreateEditDeleteFragment<Tee> {
         selectedColor = itemToEdit.getTeeColor();
         if (selectedColor == null) {
             selectedColor = TeeColor.Black;
+            setupColorButton(false);
+        } else {
+            setupColorButton(true);
         }
-        setupColorButton();
         TextInputEditText nameEditText = mainView.findViewById(R.id.tee_name_edit_text);
         nameEditText.setText(itemToEdit.getTeeName());
         TextInputEditText crEditText = mainView.findViewById(R.id.tee_cr_edit_text);
@@ -75,13 +77,19 @@ public class EditTeeFragment extends ACreateEditDeleteFragment<Tee> {
         close(true);
     }
 
-    private void setupColorButton(){
+    private void setupColorButton(boolean displayColorName){
         teeColorButton.setBackgroundColor(selectedColor.getColor(getResources()));
         if (selectedColor.secondaryTextColor()) {
             teeColorButton.setTextColor(getResources().getColor(R.color.secondaryTextColor, null));
         } else {
             teeColorButton.setTextColor(getResources().getColor(R.color.primaryTextColor, null));
         }
+        if (displayColorName) {
+            teeColorButton.setText(selectedColor.getUiColorName(getResources()));
+        } else {
+            teeColorButton.setText(getResources().getString(R.string.pick_color_label));
+        }
+
     }
 
     private void launchColorPicker(View view) {
@@ -96,7 +104,7 @@ public class EditTeeFragment extends ACreateEditDeleteFragment<Tee> {
 
     private Unit setColor (int color) {
         selectedColor = TeeColor.parse(color, getResources());
-        setupColorButton();
+        setupColorButton(true);
         return Unit.INSTANCE;
     }
 }

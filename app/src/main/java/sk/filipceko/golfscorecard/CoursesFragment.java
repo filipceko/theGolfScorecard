@@ -21,6 +21,10 @@ public class CoursesFragment extends Fragment implements ICreateEditDeleteView.O
 
     ITable coursesTable;
 
+    public static CoursesFragment newInstance() {
+        return new CoursesFragment();
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,

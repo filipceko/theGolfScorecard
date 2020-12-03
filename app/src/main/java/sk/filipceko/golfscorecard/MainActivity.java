@@ -18,16 +18,16 @@ public class MainActivity extends AppCompatActivity {
             Fragment redirect = null;
             switch (item.getItemId()){
                 case R.id.games_page:
-                    redirect = new GamesFragment();
+                    redirect = GamesFragment.newInstance();
                     break;
                 case R.id.players_page:
-                    redirect = new PlayersFragment();
+                    redirect = PlayersFragment.newInstance();
                     break;
                 case R.id.courses_page:
-                    redirect = new CoursesFragment();
+                    redirect = CoursesFragment.newInstance();
                     break;
                 case R.id.new_game_page:
-                    redirect = null;
+                    redirect = SelectCourseFragment.newInstance();
                     break;
             }
             if (redirect != null){
@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
             return false;
         });
         getSupportFragmentManager().beginTransaction()
-                .add(R.id.main_fragment_view, new GamesFragment())
+                .add(R.id.main_fragment_view, GamesFragment.newInstance())
                 .commit();
     }
 

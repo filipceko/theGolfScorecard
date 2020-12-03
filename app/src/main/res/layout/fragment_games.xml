@@ -6,9 +6,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".GamesFragment">
-    <TableLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/games_table">
-    </TableLayout>
+    <HorizontalScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        <TableLayout
+                android:id="@+id/games_table"
+                style="@style/Widget.Scorecard.Table.Layout"
+                android:shrinkColumns="0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+        </TableLayout>
+    </HorizontalScrollView>
 </androidx.core.widget.NestedScrollView>

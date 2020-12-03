@@ -5,12 +5,18 @@
         android:layout_width="match_parent"
         android:layout_margin="6dp"
         android:orientation="vertical">
-    <TableLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/course_tee_table"/>
+    <HorizontalScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        <TableLayout
+                android:id="@+id/course_tee_table"
+                style="@style/Widget.Scorecard.Table.Layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+    </HorizontalScrollView>
     <com.google.android.material.button.MaterialButton
             android:id="@+id/create_tee_button"
+            style="@style/Widget.Scorecard.Button.CreateButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/create_tee_button_label"/>

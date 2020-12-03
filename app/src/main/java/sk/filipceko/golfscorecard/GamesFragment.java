@@ -13,6 +13,10 @@ import sk.filipceko.golfscorecard.table.interfaces.ITable;
 
 public class GamesFragment extends Fragment {
 
+    public static GamesFragment newInstance() {
+        return new GamesFragment();
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,

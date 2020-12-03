@@ -66,7 +66,8 @@ public class EditCourseFragment extends ACreateEditDeleteFragment<Course>
                 resources.getString(R.string.tee_name),
                 resources.getString(R.string.tee_color),
                 resources.getString(R.string.tee_cr),
-                resources.getString(R.string.tee_sr)
+                resources.getString(R.string.tee_sr),
+                "" //Button header - no text
         );
         MaterialButton createTeeButton = mainView.findViewById(R.id.create_tee_button);
         createTeeButton.setOnClickListener(this::createTee);

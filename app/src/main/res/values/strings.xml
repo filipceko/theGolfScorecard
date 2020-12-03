@@ -13,6 +13,8 @@
     <string name="bottom_navigation_courses">Courses</string>
     <string name="bottom_navigation_new_game">New Game</string>
 
+    <string name="game_date">Date</string>
+
     <string name="course_resort">Resort</string>
     <string name="course_name">Name</string>
     <string name="course_city">City</string>
@@ -42,5 +44,4 @@
     <string name="tee_color">Tee Color</string>
 
     <string name="dummy_text">Dummy Text</string>
-    <string name="game_date">Date</string>
 </resources>

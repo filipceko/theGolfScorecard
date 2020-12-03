@@ -9,39 +9,39 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
         <TextView
-                style="@style/Scorecard.Tables.Holes.TextView"
+                style="@style/Widget.Scorecard.Holes.Tables.TextView"
                 android:text="1"
                 tools:ignore="HardcodedText"/>
         <TextView
-                style="@style/Scorecard.Tables.Holes.TextView"
+                style="@style/Widget.Scorecard.Holes.Tables.TextView"
                 android:text="2"
                 tools:ignore="HardcodedText"/>
         <TextView
-                style="@style/Scorecard.Tables.Holes.TextView"
+                style="@style/Widget.Scorecard.Holes.Tables.TextView"
                 android:text="3"
                 tools:ignore="HardcodedText"/>
         <TextView
-                style="@style/Scorecard.Tables.Holes.TextView"
+                style="@style/Widget.Scorecard.Holes.Tables.TextView"
                 android:text="4"
                 tools:ignore="HardcodedText"/>
         <TextView
-                style="@style/Scorecard.Tables.Holes.TextView"
+                style="@style/Widget.Scorecard.Holes.Tables.TextView"
                 android:text="5"
                 tools:ignore="HardcodedText"/>
         <TextView
-                style="@style/Scorecard.Tables.Holes.TextView"
+                style="@style/Widget.Scorecard.Holes.Tables.TextView"
                 android:text="6"
                 tools:ignore="HardcodedText"/>
         <TextView
-                style="@style/Scorecard.Tables.Holes.TextView"
+                style="@style/Widget.Scorecard.Holes.Tables.TextView"
                 android:text="7"
                 tools:ignore="HardcodedText"/>
         <TextView
-                style="@style/Scorecard.Tables.Holes.TextView"
+                style="@style/Widget.Scorecard.Holes.Tables.TextView"
                 android:text="8"
                 tools:ignore="HardcodedText"/>
         <TextView
-                style="@style/Scorecard.Tables.Holes.TextView"
+                style="@style/Widget.Scorecard.Holes.Tables.TextView"
                 android:text="9"
                 tools:ignore="HardcodedText"/>
     </TableRow>
@@ -71,39 +71,39 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
         <TextView
-                style="@style/Scorecard.Tables.Holes.TextView"
+                style="@style/Widget.Scorecard.Holes.Tables.TextView"
                 android:text="10"
                 tools:ignore="HardcodedText"/>
         <TextView
-                style="@style/Scorecard.Tables.Holes.TextView"
+                style="@style/Widget.Scorecard.Holes.Tables.TextView"
                 android:text="11"
                 tools:ignore="HardcodedText"/>
         <TextView
-                style="@style/Scorecard.Tables.Holes.TextView"
+                style="@style/Widget.Scorecard.Holes.Tables.TextView"
                 android:text="12"
                 tools:ignore="HardcodedText"/>
         <TextView
-                style="@style/Scorecard.Tables.Holes.TextView"
+                style="@style/Widget.Scorecard.Holes.Tables.TextView"
                 android:text="13"
                 tools:ignore="HardcodedText"/>
         <TextView
-                style="@style/Scorecard.Tables.Holes.TextView"
+                style="@style/Widget.Scorecard.Holes.Tables.TextView"
                 android:text="14"
                 tools:ignore="HardcodedText"/>
         <TextView
-                style="@style/Scorecard.Tables.Holes.TextView"
+                style="@style/Widget.Scorecard.Holes.Tables.TextView"
                 android:text="15"
                 tools:ignore="HardcodedText"/>
         <TextView
-                style="@style/Scorecard.Tables.Holes.TextView"
+                style="@style/Widget.Scorecard.Holes.Tables.TextView"
                 android:text="16"
                 tools:ignore="HardcodedText"/>
         <TextView
-                style="@style/Scorecard.Tables.Holes.TextView"
+                style="@style/Widget.Scorecard.Holes.Tables.TextView"
                 android:text="17"
                 tools:ignore="HardcodedText"/>
         <TextView
-                style="@style/Scorecard.Tables.Holes.TextView"
+                style="@style/Widget.Scorecard.Holes.Tables.TextView"
                 android:text="18"
                 tools:ignore="HardcodedText"/>
     </TableRow>
