@@ -19,10 +19,8 @@ public class Table implements ITable {
     private final LinkedList<String> headerData = new LinkedList<>();
     private final LinkedList<IRow<?>> tableRows= new LinkedList<>();
 
-    private boolean build = false;
-
-    public Table(TableLayout rootLayout, Context context) {
-        this.context = context;
+    public Table(TableLayout rootLayout) {
+        this.context = rootLayout.getContext();
         this.rootLayout = rootLayout;
     }
 
@@ -41,18 +39,12 @@ public class Table implements ITable {
     public void addRow(IRow<?> newRow) {
         tableRows.add(newRow);
         newRow.setParent(this);
-        if (build){
-            rootLayout.addView(newRow.buildRowView());
-        }
     }
 
     @Override
     public void addRow(int index, IRow<?> newRow) {
         tableRows.add(index, newRow);
         newRow.setParent(this);
-        if (build){
-            rootLayout.addView(newRow.buildRowView(), index);
-        }
     }
 
     @Override
@@ -73,10 +65,9 @@ public class Table implements ITable {
     @Override
     public TableLayout buildTableLayout() {
         rootLayout.addView(buildHeader());
-        for (IRow row : tableRows){
-            rootLayout.addView(row.buildRowView());
+        for (IRow<?> row : tableRows){
+            rootLayout.addView(row.buildRowView(context));
         }
-        build = true;
         return rootLayout;
     }
 
@@ -84,7 +75,6 @@ public class Table implements ITable {
     public void clearTable() {
         rootLayout.removeAllViews();
         tableRows.clear();
-        build = false;
     }
 
     private TableRow buildHeader(){

@@ -1,19 +1,15 @@
 package sk.filipceko.golfscorecard.table;
 
-import android.content.Context;
+import android.view.View;
 import sk.filipceko.golfscorecard.table.interfaces.ICell;
 import sk.filipceko.golfscorecard.table.interfaces.IRow;
 
 public abstract class ACell<T> implements ICell<T> {
 
-    protected Context context;
     protected Integer bgColor = null;
     protected Integer textColor = null;
     protected IRow<T> parentRow = null;
-
-    public ACell(Context context) {
-        this.context = context;
-    }
+    protected View view = null;
 
     @Override
     public void setParent(IRow<T> parent) {
@@ -23,10 +19,8 @@ public abstract class ACell<T> implements ICell<T> {
     @Override
     public void setBgColor(int color) {
         bgColor = color;
-    }
-
-    @Override
-    public void setTextColor(int color) {
-        textColor = color;
+        if (view != null) {
+            view.setBackgroundColor(color);
+        }
     }
 }

@@ -1,9 +1,7 @@
 package sk.filipceko.golfscorecard.table;
 
 import android.content.Context;
-import android.content.res.Resources;
 import android.widget.TableRow;
-import sk.filipceko.golfscorecard.R;
 import sk.filipceko.golfscorecard.table.interfaces.ICell;
 import sk.filipceko.golfscorecard.table.interfaces.IRow;
 import sk.filipceko.golfscorecard.table.interfaces.ITable;
@@ -12,18 +10,17 @@ import java.util.LinkedList;
 
 public class Row<T> implements IRow<T> {
 
-    private final Context context;
-    private final LinkedList<ICell> cells = new LinkedList<>();
+    private final LinkedList<ICell<?>> cells = new LinkedList<>();
     private T resource = null;
     private ITable parentTable;
     private IRow.OnClickListener<T> onClickListener;
 
-    public Row(Context context){
-        this.context = context;
+    public Row() {
+        //Nothing to do
     }
 
-    public Row(Context context, T resource){
-        this(context);
+    public Row(T resource) {
+        this();
         this.resource = resource;
     }
 
@@ -38,13 +35,13 @@ public class Row<T> implements IRow<T> {
     }
 
     @Override
-    public TableRow buildRowView() {
+    public TableRow buildRowView(Context context) {
         TableRow row = new TableRow(context);
-        for (ICell cell : cells) {
+        for (ICell<?> cell : cells) {
             cell.buildCellView(row);
         }
         if (onClickListener != null) {
-            row.setOnClickListener((view) -> onClickListener.onClick(view, resource));
+            row.setOnClickListener((view) -> onClickListener.onClick(view, this));
         }
         return row;
     }

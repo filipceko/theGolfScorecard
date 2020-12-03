@@ -1,6 +1,5 @@
 package sk.filipceko.golfscorecard.table;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import com.google.android.material.button.MaterialButton;
@@ -11,10 +10,13 @@ public class ButtonCell<T> extends ACell<T> {
     String buttonText = null;
     ICellButtonListener<T> cellButtonListener = null;
 
-    //TODO allow to set style
+    public ButtonCell(){
+        super();
+    }
 
-    public ButtonCell(Context context) {
-        super(context);
+    public ButtonCell(String buttonText) {
+        this();
+        this.buttonText = buttonText;
     }
 
     public String getButtonText() {
@@ -23,6 +25,17 @@ public class ButtonCell<T> extends ACell<T> {
 
     public void setButtonText(String buttonText) {
         this.buttonText = buttonText;
+        if (view != null) {
+            ((MaterialButton) view).setText(buttonText);
+        }
+    }
+
+    @Override
+    public void setTextColor(int color) {
+        textColor = color;
+        if (view != null) {
+            ((MaterialButton) view).setTextColor(color);
+        }
     }
 
     public void setOnClickListener(ICellButtonListener<T> listener){
@@ -31,7 +44,7 @@ public class ButtonCell<T> extends ACell<T> {
 
     @Override
     public MaterialButton buildCellView(ViewGroup parent) {
-        LayoutInflater inflater = context.getSystemService(LayoutInflater.class);
+        LayoutInflater inflater = parent.getContext().getSystemService(LayoutInflater.class);
         inflater.inflate(R.layout.table_button_cell, parent);
         MaterialButton button = (MaterialButton) parent.getChildAt(parent.getChildCount() - 1);
         button.setText(buttonText);
@@ -45,6 +58,7 @@ public class ButtonCell<T> extends ACell<T> {
             button.setOnClickListener(view -> cellButtonListener.onClick(view,
                     (parentRow == null) ? null : parentRow.getResource()));
         }
+        view = button;
         return button;
     }
 }

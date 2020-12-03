@@ -23,7 +23,7 @@ public class GamesFragment extends Fragment {
                              @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.fragment_games, container, false);
-        ITable gamesTable = new Table(view.findViewById(R.id.games_table), getContext());
+        ITable gamesTable = new Table(view.findViewById(R.id.games_table));
         Resources resources = getResources();
         gamesTable.setHeader(
                 resources.getString(R.string.course_resort),

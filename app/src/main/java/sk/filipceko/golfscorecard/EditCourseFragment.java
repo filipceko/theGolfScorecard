@@ -60,7 +60,7 @@ public class EditCourseFragment extends ACreateEditDeleteFragment<Course>
         hcpTable = mainView.findViewById(R.id.course_hcp_table);
         parTable = mainView.findViewById(R.id.course_par_table);
         //Prepare tee section
-        teesTable = new Table(mainView.findViewById(R.id.course_tee_table), getContext());
+        teesTable = new Table(mainView.findViewById(R.id.course_tee_table));
         Resources resources = getResources();
         teesTable.setHeader(
                 resources.getString(R.string.tee_name),
@@ -136,22 +136,21 @@ public class EditCourseFragment extends ACreateEditDeleteFragment<Course>
             return;
         }
         for (Tee tee : tees){
-            IRow<Tee> row = new Row<>(getContext(), tee);
-            ButtonCell<Tee> editButtonCell = new ButtonCell<>(getContext());
-            editButtonCell.setButtonText(resources.getString(R.string.edit_button_label));
+            IRow<Tee> row = new Row<>(tee);
+            ButtonCell<Tee> editButtonCell = new ButtonCell<>(resources.getString(R.string.edit_button_label));
             editButtonCell.setOnClickListener(this::editTee);
             row.addCell(editButtonCell);
-            ICell<Tee> srCell = new TextCell<>( getContext(), String.valueOf(tee.getSr()));
+            ICell<Tee> srCell = new TextCell<>(String.valueOf(tee.getSr()));
             row.addCell(srCell);
-            ICell<Tee> crCell = new TextCell<>(getContext(), String.valueOf(tee.getCr()));
+            ICell<Tee> crCell = new TextCell<>(String.valueOf(tee.getCr()));
             row.addCell(crCell);
-            ICell<Tee> colorCell = new TextCell<>(getContext(), tee.getTeeColor().getUiColorName(resources));
+            ICell<Tee> colorCell = new TextCell<>(tee.getTeeColor().getUiColorName(resources));
             colorCell.setBgColor(tee.getTeeColor().getColor(resources));
             colorCell.setTextColor(resources.getColor(
                     (tee.getTeeColor().secondaryTextColor())? R.color.secondaryTextColor : R.color.primaryTextColor,
                     null));
             row.addCell(colorCell);
-            ICell<Tee> nameCell = new TextCell<>(getContext(), tee.getTeeName());
+            ICell<Tee> nameCell = new TextCell<>(tee.getTeeName());
             row.addCell(nameCell);
             teesTable.addRow(row);
         }

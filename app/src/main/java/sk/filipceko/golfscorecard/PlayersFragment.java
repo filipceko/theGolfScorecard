@@ -15,6 +15,7 @@ import sk.filipceko.golfscorecard.data.Player;
 import sk.filipceko.golfscorecard.table.Row;
 import sk.filipceko.golfscorecard.table.Table;
 import sk.filipceko.golfscorecard.table.TextCell;
+import sk.filipceko.golfscorecard.table.interfaces.IRow;
 import sk.filipceko.golfscorecard.table.interfaces.ITable;
 
 public class PlayersFragment extends Fragment implements ICreateEditDeleteView.OnResultListener<Player> {
@@ -32,7 +33,7 @@ public class PlayersFragment extends Fragment implements ICreateEditDeleteView.O
                              @Nullable Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.fragment_players, container, false);
         Resources resources = getResources();
-        table = new Table(view.findViewById(R.id.players_table), getContext());
+        table = new Table(view.findViewById(R.id.players_table));
         table.setHeader(
                 resources.getString(R.string.player_name),
                 resources.getString(R.string.player_surname),
@@ -49,12 +50,12 @@ public class PlayersFragment extends Fragment implements ICreateEditDeleteView.O
         RealmResults<Player> players = realm.where(Player.class).findAll();
         table.clearTable();
         for (Player player : players){
-            Row<Player> newRow = new Row<>(getContext(), player);
-            TextCell<Player> hcpCell = new TextCell<>(getContext(), player.getHcpString());
+            Row<Player> newRow = new Row<>(player);
+            TextCell<Player> hcpCell = new TextCell<>(player.getHcpString());
             newRow.addCell(hcpCell);
-            TextCell<Player> surnameCell = new TextCell<>(getContext(), player.getSurname());
+            TextCell<Player> surnameCell = new TextCell<>(player.getSurname());
             newRow.addCell(surnameCell);
-            TextCell<Player> nameCell = new TextCell<>(getContext(), player.getName());
+            TextCell<Player> nameCell = new TextCell<>(player.getName());
             newRow.addCell(nameCell);
             table.addRow(newRow);
             newRow.setOnClickListener(this::editPlayer);
@@ -62,8 +63,8 @@ public class PlayersFragment extends Fragment implements ICreateEditDeleteView.O
         table.buildTableLayout();
     }
 
-    public void editPlayer(View view, Player player) {
-        EditPlayerFragment editPlayerFragment = EditPlayerFragment.newInstance(player);
+    public void editPlayer(View view, IRow<Player> row) {
+        EditPlayerFragment editPlayerFragment = EditPlayerFragment.newInstance(row.getResource());
         getParentFragmentManager().beginTransaction()
                 .add(R.id.main_fragment_view, editPlayerFragment, null)
                 .addToBackStack(null)

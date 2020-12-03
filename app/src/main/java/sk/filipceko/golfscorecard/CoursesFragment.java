@@ -15,6 +15,7 @@ import sk.filipceko.golfscorecard.data.Course;
 import sk.filipceko.golfscorecard.table.Row;
 import sk.filipceko.golfscorecard.table.Table;
 import sk.filipceko.golfscorecard.table.TextCell;
+import sk.filipceko.golfscorecard.table.interfaces.IRow;
 import sk.filipceko.golfscorecard.table.interfaces.ITable;
 
 public class CoursesFragment extends Fragment implements ICreateEditDeleteView.OnResultListener<Course> {
@@ -31,7 +32,7 @@ public class CoursesFragment extends Fragment implements ICreateEditDeleteView.O
                              @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_courses, container, false);
-        coursesTable = new Table(view.findViewById(R.id.courses_table), getContext());
+        coursesTable = new Table(view.findViewById(R.id.courses_table));
         Resources resources = getResources();
         coursesTable.setHeader(
                 resources.getString(R.string.course_resort),
@@ -52,18 +53,18 @@ public class CoursesFragment extends Fragment implements ICreateEditDeleteView.O
         RealmResults<Course> courses = realm.where(Course.class).findAll();
         coursesTable.clearTable();
         for (Course course : courses) {
-            Row<Course> courseRow = new Row<>(getContext(), course);
-            TextCell<Course> teesCell = new TextCell<>(getContext(), Integer.toString(course.getTees().size()));
+            Row<Course> courseRow = new Row<>(course);
+            TextCell<Course> teesCell = new TextCell<>(Integer.toString(course.getTees().size()));
             courseRow.addCell(teesCell);
-            TextCell<Course> holesCell = new TextCell<>(getContext(), Integer.toString(course.getNumberOfHoles()));
+            TextCell<Course> holesCell = new TextCell<>(Integer.toString(course.getNumberOfHoles()));
             courseRow.addCell(holesCell);
-            TextCell<Course> countryCell = new TextCell<>(getContext(), course.getCountry());
+            TextCell<Course> countryCell = new TextCell<>(course.getCountry());
             courseRow.addCell(countryCell);
-            TextCell<Course> cityCell = new TextCell<>(getContext(), course.getCity());
+            TextCell<Course> cityCell = new TextCell<>(course.getCity());
             courseRow.addCell(cityCell);
-            TextCell<Course> nameCell = new TextCell<>(getContext(), course.getCourseName());
+            TextCell<Course> nameCell = new TextCell<>(course.getCourseName());
             courseRow.addCell(nameCell);
-            TextCell<Course> resortCell = new TextCell<>(getContext(), course.getResort());
+            TextCell<Course> resortCell = new TextCell<>(course.getResort());
             courseRow.addCell(resortCell);
             courseRow.setOnClickListener(this::editCourse);
             coursesTable.addRow(courseRow);
@@ -71,8 +72,8 @@ public class CoursesFragment extends Fragment implements ICreateEditDeleteView.O
         coursesTable.buildTableLayout();
     }
 
-    public void editCourse(View view, Course course) {
-        EditCourseFragment editCourseFragment = EditCourseFragment.newInstance(course);
+    public void editCourse(View view, IRow<Course> row) {
+        EditCourseFragment editCourseFragment = EditCourseFragment.newInstance(row.getResource());
         getParentFragmentManager().beginTransaction()
                 .add(R.id.main_fragment_view, editCourseFragment)
                 .addToBackStack(null)
