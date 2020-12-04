@@ -12,15 +12,17 @@ import sk.filipceko.golfscorecard.table.interfaces.ITable;
 import java.util.Collections;
 import java.util.LinkedList;
 
-public class Table implements ITable {
+public class Table extends ATableComponent implements ITable {
 
-    private final Context context;
     private TableLayout rootLayout;
     private final LinkedList<String> headerData = new LinkedList<>();
     private final LinkedList<IRow<?>> tableRows= new LinkedList<>();
 
+    public Table() {
+        //Nothing to do
+    }
+
     public Table(TableLayout rootLayout) {
-        this.context = rootLayout.getContext();
         this.rootLayout = rootLayout;
     }
 
@@ -38,35 +40,18 @@ public class Table implements ITable {
     @Override
     public void addRow(IRow<?> newRow) {
         tableRows.add(newRow);
-        newRow.setParent(this);
     }
 
     @Override
-    public void addRow(int index, IRow<?> newRow) {
-        tableRows.add(index, newRow);
-        newRow.setParent(this);
+    public void deleteRow(IRow<?> row) {
+        tableRows.remove(row);
     }
 
     @Override
-    public void deleteRow(int index) {
-        tableRows.remove(index);
-    }
-
-    @Override
-    public int getLastRowIndex() {
-        return tableRows.size() - 1;
-    }
-
-    @Override
-    public int getIndexOf(IRow<?> row) {
-        return tableRows.indexOf(row);
-    }
-
-    @Override
-    public TableLayout buildTableLayout() {
-        rootLayout.addView(buildHeader());
+    public TableLayout buildView(Context context) {
+        rootLayout.addView(buildHeader(context));
         for (IRow<?> row : tableRows){
-            rootLayout.addView(row.buildRowView(context));
+            rootLayout.addView(row.buildView(context));
         }
         return rootLayout;
     }
@@ -77,7 +62,7 @@ public class Table implements ITable {
         tableRows.clear();
     }
 
-    private TableRow buildHeader(){
+    private TableRow buildHeader(Context context){
         TableRow headerRow = new TableRow(context);
         LayoutInflater inflater = context.getSystemService(LayoutInflater.class);
         for (String header : headerData) {

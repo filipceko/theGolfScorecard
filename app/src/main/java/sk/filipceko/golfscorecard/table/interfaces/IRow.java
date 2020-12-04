@@ -2,21 +2,22 @@ package sk.filipceko.golfscorecard.table.interfaces;
 
 import android.content.Context;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TableRow;
 
-public interface IRow<T> {
+public interface IRow<T> extends IDisplayable {
 
-    void setParent(ITable table);
+    @Override
+    TableRow buildView(Context context);
 
-    int getIndex();
+    @Override
+    ViewGroup getView();
 
-    TableRow buildRowView(Context context);
+    void setBgColor(int color, boolean colorCells);
 
     void addCell(ICell<T> cell);
 
-    void removeCell(int index);
-
-    int getCellIndex(ICell<T> cell);
+    void removeCell(ICell<?> index);
 
     T getResource();
 

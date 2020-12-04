@@ -60,7 +60,7 @@ public class PlayersFragment extends Fragment implements ICreateEditDeleteView.O
             table.addRow(newRow);
             newRow.setOnClickListener(this::editPlayer);
         }
-        table.buildTableLayout();
+        table.buildView(getContext());
     }
 
     public void editPlayer(View view, IRow<Player> row) {

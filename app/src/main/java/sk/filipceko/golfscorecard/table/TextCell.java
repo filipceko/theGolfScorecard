@@ -1,5 +1,6 @@
 package sk.filipceko.golfscorecard.table;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -10,11 +11,10 @@ public class TextCell<T> extends ACell<T> {
     private String text = null;
 
     public TextCell(){
-        super();
+        //Nothing to do
     }
 
     public TextCell(String text){
-        this();
         this.text = text;
     }
 
@@ -23,26 +23,13 @@ public class TextCell<T> extends ACell<T> {
     }
 
     @Override
-    public void setTextColor(int color) {
-        textColor = color;
-        if (view != null) {
-            ((TextView) view).setTextColor(color);
-        }
-    }
-
-    @Override
-    public TextView buildCellView(ViewGroup parent) {
-        LayoutInflater inflater = parent.getContext().getSystemService(LayoutInflater.class);
+    public TextView buildView(Context context) {
+        ViewGroup parent = parentRow.getView();
+        LayoutInflater inflater = context.getSystemService(LayoutInflater.class);
         inflater.inflate(R.layout.table_text_cell, parent);
         TextView textView = (TextView) parent.getChildAt(parent.getChildCount() - 1);
         textView.setText(text);
-        if (bgColor != null){
-            textView.setBackgroundColor(bgColor);
-        }
-        if (textColor != null) {
-            textView.setTextColor(textColor);
-        }
-        view = textView;
+        setView(textView);
         return textView;
     }
 }

@@ -31,7 +31,7 @@ public class GamesFragment extends Fragment {
                 resources.getString(R.string.game_date)
         );
         //TODO
-        gamesTable.buildTableLayout();
+        gamesTable.buildView(getContext());
         return view;
     }
 }

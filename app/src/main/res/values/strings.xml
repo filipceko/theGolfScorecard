@@ -31,6 +31,7 @@
     <string name="delete_button_label">Delete</string>
     <string name="edit_button_label">Edit</string>
     <string name="pick_color_label">Pick a tee color</string>
+    <string name="start_game_button_label">Start a new game</string>
 
     <string name="player_name">Name</string>
     <string name="player_surname">Surname</string>

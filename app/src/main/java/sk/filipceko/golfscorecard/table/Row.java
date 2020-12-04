@@ -1,49 +1,55 @@
 package sk.filipceko.golfscorecard.table;
 
 import android.content.Context;
+import android.view.ViewGroup;
 import android.widget.TableRow;
 import sk.filipceko.golfscorecard.table.interfaces.ICell;
 import sk.filipceko.golfscorecard.table.interfaces.IRow;
-import sk.filipceko.golfscorecard.table.interfaces.ITable;
 
 import java.util.LinkedList;
 
-public class Row<T> implements IRow<T> {
+public class Row<T> extends ATableComponent implements IRow<T> {
 
     private final LinkedList<ICell<?>> cells = new LinkedList<>();
     private T resource = null;
-    private ITable parentTable;
     private IRow.OnClickListener<T> onClickListener;
+
 
     public Row() {
         //Nothing to do
     }
 
     public Row(T resource) {
-        this();
         this.resource = resource;
     }
 
     @Override
-    public void setParent(ITable table) {
-        this.parentTable = table;
+    public ViewGroup getView() {
+        return (ViewGroup) super.getView();
     }
 
     @Override
-    public int getIndex() {
-        return parentTable.getIndexOf(this);
-    }
-
-    @Override
-    public TableRow buildRowView(Context context) {
+    public TableRow buildView(Context context) {
         TableRow row = new TableRow(context);
-        for (ICell<?> cell : cells) {
-            cell.buildCellView(row);
-        }
         if (onClickListener != null) {
             row.setOnClickListener((view) -> onClickListener.onClick(view, this));
         }
+        setView(row);
+        for (ICell<?> cell : cells) {
+            cell.buildView(context);
+        }
         return row;
+    }
+
+    @Override
+    public void setBgColor(int color, boolean colorCells) {
+        setBgColor(color);
+        if(!colorCells){
+            return;
+        }
+        for (ICell<?> cell : cells) {
+            cell.setBgColor(color);
+        }
     }
 
     @Override
@@ -53,13 +59,8 @@ public class Row<T> implements IRow<T> {
     }
 
     @Override
-    public void removeCell(int index) {
-        cells.remove(index);
-    }
-
-    @Override
-    public int getCellIndex(ICell<T> cell) {
-        return cells.indexOf(cell);
+    public void removeCell(ICell<?> cell) {
+        cells.remove(cell);
     }
 
     @Override

@@ -69,7 +69,7 @@ public class CoursesFragment extends Fragment implements ICreateEditDeleteView.O
             courseRow.setOnClickListener(this::editCourse);
             coursesTable.addRow(courseRow);
         }
-        coursesTable.buildTableLayout();
+        coursesTable.buildView(getContext());
     }
 
     public void editCourse(View view, IRow<Course> row) {

@@ -1,17 +1,14 @@
 package sk.filipceko.golfscorecard.table.interfaces;
 
+import android.content.Context;
 import android.view.View;
-import android.view.ViewGroup;
 
-public interface ICell<T> {
+public interface ICell<T> extends IDisplayable {
 
-    View buildCellView(ViewGroup parent);
+    @Override
+    View buildView(Context context);
 
     void setParent(IRow<T> parent);
-
-    void setBgColor(int color);
-
-    void setTextColor(int color);
 
     interface ICellButtonListener<T> {
         void onClick(View view, T value);

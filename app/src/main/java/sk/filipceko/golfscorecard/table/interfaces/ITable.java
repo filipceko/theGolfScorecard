@@ -1,8 +1,9 @@
 package sk.filipceko.golfscorecard.table.interfaces;
 
+import android.content.Context;
 import android.widget.TableLayout;
 
-public interface ITable {
+public interface ITable extends IDisplayable {
 
     void setRoot(TableLayout root);
 
@@ -10,15 +11,10 @@ public interface ITable {
 
     void addRow(IRow<?> newRow);
 
-    void deleteRow(int index);
+    void deleteRow(IRow<?> row);
 
-    int getLastRowIndex();
-
-    int getIndexOf(IRow<?> row);
-
-    void addRow(int index, IRow<?> newRow);
-
-    TableLayout buildTableLayout();
+    @Override
+    TableLayout buildView(Context context);
 
     void clearTable();
 }

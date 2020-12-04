@@ -154,7 +154,7 @@ public class EditCourseFragment extends ACreateEditDeleteFragment<Course>
             row.addCell(nameCell);
             teesTable.addRow(row);
         }
-        teesTable.buildTableLayout();
+        teesTable.buildView(getContext());
     }
 
     //Listeners

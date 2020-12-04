@@ -1,12 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
              xmlns:tools="http://schemas.android.com/tools"
+              tools:context=".SelectCourseFragment"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
-             tools:context=".SelectCourseFragment">
-
-    <TextView
+              android:orientation="vertical">
+    <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="0dp"
+            android:layout_weight="1">
+        <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            <TableLayout
+                    android:id="@+id/courses_table"
+                    style="@style/Widget.Scorecard.Table.Layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+        </HorizontalScrollView>
+    </androidx.core.widget.NestedScrollView>
 
-</FrameLayout>
+    <com.google.android.material.button.MaterialButton
+            android:id="@+id/start_game_button"
+            style="@style/Widget.Scorecard.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            android:enabled="false"
+            android:text="@string/start_game_button_label"/>
+
+</LinearLayout>
