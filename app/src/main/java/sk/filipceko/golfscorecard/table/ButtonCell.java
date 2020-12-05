@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 import com.google.android.material.button.MaterialButton;
 import sk.filipceko.golfscorecard.R;
 
-public class ButtonCell<T> extends ACell<T> {
+public class ButtonCell<T> extends ACell<MaterialButton, T> {
 
     String buttonText = null;
     ICellButtonListener<T> cellButtonListener = null;
@@ -22,7 +22,7 @@ public class ButtonCell<T> extends ACell<T> {
     public void setButtonText(String buttonText) {
         this.buttonText = buttonText;
         if (getView() != null) {
-            ((MaterialButton) getView()).setText(buttonText);
+            getView().setText(buttonText);
         }
     }
 

@@ -5,16 +5,17 @@ import android.widget.TableLayout;
 
 public interface ITable extends IDisplayable {
 
-    void setRoot(TableLayout root);
+    @Override
+    TableLayout buildView(Context context);
+
+    @Override
+    TableLayout getView();
 
     void setHeader(String ... headers);
 
     void addRow(IRow<?> newRow);
 
     void deleteRow(IRow<?> row);
-
-    @Override
-    TableLayout buildView(Context context);
 
     void clearTable();
 }

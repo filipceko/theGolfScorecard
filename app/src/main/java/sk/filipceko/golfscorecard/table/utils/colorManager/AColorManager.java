@@ -6,7 +6,7 @@ public abstract class AColorManager implements IColorManager {
 
     protected View view;
 
-    private int defaultColor = -1;
+    private int defaultColor = IColorManager.DEFAULT_COLOR;
 
     protected abstract void setColorToView(int color);
 
@@ -14,7 +14,7 @@ public abstract class AColorManager implements IColorManager {
 
     public void setView(View view) {
         this.view = view;
-        if (defaultColor != -1){
+        if (defaultColor != IColorManager.DEFAULT_COLOR){
             setColorToView(defaultColor);
         } else {
             defaultColor = getColorFromView();

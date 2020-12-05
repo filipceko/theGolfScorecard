@@ -137,21 +137,21 @@ public class EditCourseFragment extends ACreateEditDeleteFragment<Course>
         }
         for (Tee tee : tees){
             IRow<Tee> row = new Row<>(tee);
-            ButtonCell<Tee> editButtonCell = new ButtonCell<>(resources.getString(R.string.edit_button_label));
-            editButtonCell.setOnClickListener(this::editTee);
-            row.addCell(editButtonCell);
-            ICell<Tee> srCell = new TextCell<>(String.valueOf(tee.getSr()));
-            row.addCell(srCell);
-            ICell<Tee> crCell = new TextCell<>(String.valueOf(tee.getCr()));
-            row.addCell(crCell);
+            ICell<Tee> nameCell = new TextCell<>(tee.getTeeName());
+            row.addCell(nameCell);
             ICell<Tee> colorCell = new TextCell<>(tee.getTeeColor().getUiColorName(resources));
             colorCell.setBgColor(tee.getTeeColor().getColor(resources));
             colorCell.setTextColor(resources.getColor(
                     (tee.getTeeColor().secondaryTextColor())? R.color.secondaryTextColor : R.color.primaryTextColor,
                     null));
             row.addCell(colorCell);
-            ICell<Tee> nameCell = new TextCell<>(tee.getTeeName());
-            row.addCell(nameCell);
+            ICell<Tee> crCell = new TextCell<>(String.valueOf(tee.getCr()));
+            row.addCell(crCell);
+            ICell<Tee> srCell = new TextCell<>(String.valueOf(tee.getSr()));
+            row.addCell(srCell);
+            ButtonCell<Tee> editButtonCell = new ButtonCell<>(resources.getString(R.string.edit_button_label));
+            editButtonCell.setOnClickListener(this::editTee);
+            row.addCell(editButtonCell);
             teesTable.addRow(row);
         }
         teesTable.buildView(getContext());

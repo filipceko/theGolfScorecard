@@ -51,12 +51,12 @@ public class PlayersFragment extends Fragment implements ICreateEditDeleteView.O
         table.clearTable();
         for (Player player : players){
             Row<Player> newRow = new Row<>(player);
-            TextCell<Player> hcpCell = new TextCell<>(player.getHcpString());
-            newRow.addCell(hcpCell);
-            TextCell<Player> surnameCell = new TextCell<>(player.getSurname());
-            newRow.addCell(surnameCell);
             TextCell<Player> nameCell = new TextCell<>(player.getName());
             newRow.addCell(nameCell);
+            TextCell<Player> surnameCell = new TextCell<>(player.getSurname());
+            newRow.addCell(surnameCell);
+            TextCell<Player> hcpCell = new TextCell<>(player.getHcpString());
+            newRow.addCell(hcpCell);
             table.addRow(newRow);
             newRow.setOnClickListener(this::editPlayer);
         }

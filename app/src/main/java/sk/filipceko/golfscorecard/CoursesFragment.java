@@ -54,18 +54,18 @@ public class CoursesFragment extends Fragment implements ICreateEditDeleteView.O
         coursesTable.clearTable();
         for (Course course : courses) {
             Row<Course> courseRow = new Row<>(course);
-            TextCell<Course> teesCell = new TextCell<>(Integer.toString(course.getTees().size()));
-            courseRow.addCell(teesCell);
-            TextCell<Course> holesCell = new TextCell<>(Integer.toString(course.getNumberOfHoles()));
-            courseRow.addCell(holesCell);
-            TextCell<Course> countryCell = new TextCell<>(course.getCountry());
-            courseRow.addCell(countryCell);
-            TextCell<Course> cityCell = new TextCell<>(course.getCity());
-            courseRow.addCell(cityCell);
-            TextCell<Course> nameCell = new TextCell<>(course.getCourseName());
-            courseRow.addCell(nameCell);
             TextCell<Course> resortCell = new TextCell<>(course.getResort());
             courseRow.addCell(resortCell);
+            TextCell<Course> nameCell = new TextCell<>(course.getCourseName());
+            courseRow.addCell(nameCell);
+            TextCell<Course> cityCell = new TextCell<>(course.getCity());
+            courseRow.addCell(cityCell);
+            TextCell<Course> countryCell = new TextCell<>(course.getCountry());
+            courseRow.addCell(countryCell);
+            TextCell<Course> holesCell = new TextCell<>(Integer.toString(course.getNumberOfHoles()));
+            courseRow.addCell(holesCell);
+            TextCell<Course> teesCell = new TextCell<>(Integer.toString(course.getTees().size()));
+            courseRow.addCell(teesCell);
             courseRow.setOnClickListener(this::editCourse);
             coursesTable.addRow(courseRow);
         }

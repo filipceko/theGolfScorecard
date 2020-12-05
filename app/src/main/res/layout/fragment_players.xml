@@ -14,11 +14,16 @@
         <HorizontalScrollView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
-            <TableLayout
-                    android:id="@+id/players_table"
-                    style="@style/Widget.Scorecard.Table.Layout"
+            <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                <TableLayout
+                        android:id="@+id/players_table"
+                        style="@style/Widget.Scorecard.Table.Layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+            </LinearLayout>
         </HorizontalScrollView>
     </androidx.core.widget.NestedScrollView>
     <com.google.android.material.button.MaterialButton

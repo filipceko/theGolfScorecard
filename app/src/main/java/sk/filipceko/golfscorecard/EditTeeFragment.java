@@ -94,10 +94,9 @@ public class EditTeeFragment extends ACreateEditDeleteFragment<Tee> {
 
     private void launchColorPicker(View view) {
         ColorSheet colorSheet = new ColorSheet();
-        TeeColor teeColor = itemToEdit.getTeeColor();
         colorSheet.colorPicker(
                 TeeColor.getAllCodes(getResources()),
-                (teeColor == null) ? null : teeColor.getColor(getResources()),
+                (selectedColor == null) ? null : selectedColor.getColor(getResources()),
                 false, this::setColor)
                 .show(getParentFragmentManager());
     }

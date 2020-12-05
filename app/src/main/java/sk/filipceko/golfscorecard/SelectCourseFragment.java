@@ -49,14 +49,14 @@ public class SelectCourseFragment extends Fragment {
         RealmResults<Course> courses = realm.where(Course.class).findAll();
         for (Course course : courses){
             IRow<Course> row = new Row<>();
-            TextCell<Course> holesCell = new TextCell<>(Integer.toString(course.getNumberOfHoles()));
-            row.addCell(holesCell);
-            TextCell<Course> cityCell = new TextCell<>(course.getCity());
-            row.addCell(cityCell);
-            TextCell<Course> nameCell = new TextCell<>(course.getCourseName());
-            row.addCell(nameCell);
             TextCell<Course> resortCell = new TextCell<>(course.getResort());
             row.addCell(resortCell);
+            TextCell<Course> nameCell = new TextCell<>(course.getCourseName());
+            row.addCell(nameCell);
+            TextCell<Course> cityCell = new TextCell<>(course.getCity());
+            row.addCell(cityCell);
+            TextCell<Course> holesCell = new TextCell<>(Integer.toString(course.getNumberOfHoles()));
+            row.addCell(holesCell);
             row.setOnClickListener(this::onSelect);
             coursesTable.addRow(row);
         }

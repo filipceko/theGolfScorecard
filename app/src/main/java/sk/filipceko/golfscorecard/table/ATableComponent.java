@@ -6,21 +6,22 @@ import sk.filipceko.golfscorecard.table.utils.colorManager.BgColorManager;
 import sk.filipceko.golfscorecard.table.utils.colorManager.IColorManager;
 import sk.filipceko.golfscorecard.table.utils.colorManager.TextColorManager;
 
-public abstract class ATableComponent implements IDisplayable {
+public abstract class ATableComponent<T extends View> implements IDisplayable {
 
-    private View view = null;
+    private T view = null;
 
     protected BgColorManager bgColorManager = new BgColorManager();
     protected TextColorManager textColorManager = new TextColorManager();
 
     @Override
-    public View getView() {
+    public T getView() {
         return view;
     }
 
-    protected void setView(View view) {
+    protected void setView(T view) {
         this.view = view;
         bgColorManager.setView(view);
+        textColorManager.setView(view);
     }
 
     @Override

@@ -19,11 +19,26 @@
         <item name="android:background">@color/secondaryLightColor</item>
         <item name="android:paddingStart">2dp</item>
         <item name="android:paddingBottom">3dp</item>
+        <item name="android:layout_margin">6dp</item>
+    </style>
+
+    <style name="Widget.Scorecard.Table.Row.Layout" parent="">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">3dp</item>
+        <item name="android:layout_marginStart">3dp</item>
+        <item name="android:layout_marginEnd">3dp</item>
+    </style>
+
+    <style name="Widget.Scorecard.Table.Cell" parent="Widget.MaterialComponents.TextView">
+        <item name="android:layout_marginEnd">2dp</item>
+        <item name="android:paddingEnd">10dp</item>
+        <item name="android:padding">4dp</item>
+        <item name="android:maxLength">30</item>
     </style>
 
     <style name="Widget.Scorecard.Table.Cell.Header" parent="Widget.Scorecard.Table.Cell">
         <item name="android:textAlignment">center</item>
-
         <item name="android:background">@color/primaryLightColor</item>
         <item name="android:textColor">@color/primaryTextColor</item>
         <item name="android:textStyle">bold</item>
@@ -35,18 +50,9 @@
         <item name="android:textColor">@color/secondaryTextColor</item>
     </style>
 
-    <style name="Widget.Scorecard.Table.Cell" parent="Widget.MaterialComponents.TextView">
-        <item name="android:layout_marginTop">3dp</item>
-        <item name="android:layout_marginEnd">2dp</item>
-        <item name="android:paddingEnd">10dp</item>
-        <item name="android:padding">4dp</item>
-        <item name="android:maxLength">30</item>
-    </style>
-
     <style name="Widget.Scorecard.Table.Cell.Button" parent="Widget.Scorecard.Button">
         <item name="android:insetBottom">0dp</item>
         <item name="android:insetTop">0dp</item>
-        <item name="android:layout_marginTop">3dp</item>
         <item name="android:layout_marginEnd">2dp</item>
         <item name="android:layout_height">28dp</item>
     </style>
